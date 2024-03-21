@@ -1,0 +1,35 @@
+class MarvelHeroes {
+  String nombrePila;
+  String nombrePersonaje;
+
+  MarvelHeroes({required this.nombrePila, required this.nombrePersonaje});
+}
+
+void main() {
+  var spiderman = MarvelHeroes(nombrePila: 'PETER PARKER', nombrePersonaje: 'SPIDERMAN');
+  print('Hola, mi nombre es ${spiderman.nombrePila} pero me conoces como tu amigable vecino ${spiderman.nombrePersonaje}');
+}
+
+class DCHeroes {
+   String nombrePila;
+   String nombrePersonaje;
+  
+
+  DCHeroes({this.nombrePila = '', this.nombrePersonaje = ''}) {
+    DCJson = {'nombrePila': nombrePila ?? '', 'nombrePersonaje': nombrePersonaje ?? ''};
+    if (DCJson['nombrePila'] == null || DCJson['nombrePila']!.isEmpty) {
+      DCJson['nombrePila'] = 'no tiene nombre';
+    }
+    if (DCJson['nombrePersonaje'] == null || DCJson['nombrePersonaje']!.isEmpty) {
+      DCJson['nombrePersonaje'] = 'no tiene alias';
+    }
+  }
+
+  Map<String, String> DCJson = {}; 
+}
+
+void main() {
+  var batman = DCHeroes(nombrePila: '', nombrePersonaje: '');
+
+  print('Hola, mi nombre es ${batman.DCJson['nombrePila']} pero me conoces como el caballero de la noche ${batman.DCJson['nombrePersonaje']}');
+}
